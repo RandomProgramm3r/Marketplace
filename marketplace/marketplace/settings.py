@@ -20,6 +20,8 @@ DEBUG = load_bool('DJANGO_DEBUG', False)
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(',')
 
+ALLOW_REVERSE = load_bool('DJANGO_ALLOW_REVERSE', True)
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'marketplace.middleware.ReverseEnglishWordsMiddleware',
 ]
 
 ROOT_URLCONF = 'marketplace.urls'

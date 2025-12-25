@@ -16,7 +16,7 @@ class HomepageURLTests(django.test.TestCase):
         self.assertEqual(
             response.status_code,
             http.HTTPStatus.IM_A_TEAPOT,
-            (f'The page {self.coffee_url}should return status 418.'),
+            (f'The page {self.coffee_url} should return status 418.'),
         )
 
     def test_coffee_url_returns_correct_content(self):
