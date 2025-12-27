@@ -13,3 +13,6 @@ dev = [
     "django-debug-toolbar>=6.1.0",
     "ruff>=0.14.9",
 ]
+test = [
+    "parameterized>=0.9.0",
+]
