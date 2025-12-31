@@ -15,7 +15,7 @@ line-ending = "auto"
 
 [lint.isort]
 force-sort-within-sections = true
-known-first-party = ["lyceum",]
+known-first-party = ["lyceum", "about", "catalog", "core", "homepage"]
 
 
 [lint.flake8-quotes]
