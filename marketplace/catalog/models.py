@@ -1,6 +1,7 @@
 import django.core.validators
 import django.db.models
 
+import catalog.validators
 import core.models
 
 
@@ -54,6 +55,15 @@ class Item(core.models.PublishedWithNameBaseModel):
     )
     text = django.db.models.TextField(
         'text',
+        validators=[
+            catalog.validators.ValidateMustContain(
+                'excellent',
+                'luxurious',
+            ),
+        ],
+        help_text=(
+            'The text must contain the words "excellent" or "luxurious".',
+        ),
     )
 
     created_at = django.db.models.DateTimeField(
