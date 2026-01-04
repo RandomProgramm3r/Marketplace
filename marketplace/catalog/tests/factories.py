@@ -2,28 +2,22 @@ import factory
 import marketplace.utils.tests.base
 
 import catalog.models
+import core.tests.factories
 
 
-class TagFactory(factory.django.DjangoModelFactory):
+class TagFactory(core.tests.factories.PublishedWithNameBaseModelFactory):
     class Meta:
         model = catalog.models.Tag
-
-    name = factory.LazyAttribute(
-        lambda _: marketplace.utils.tests.base.faker.word(),
-    )
 
     slug = factory.Sequence(
         lambda n: f'tag-{n}-{marketplace.utils.tests.base.faker.slug()}',
     )
 
 
-class CategoryFactory(factory.django.DjangoModelFactory):
+class CategoryFactory(core.tests.factories.PublishedWithNameBaseModelFactory):
     class Meta:
         model = catalog.models.Category
 
-    name = factory.LazyAttribute(
-        lambda _: marketplace.utils.tests.base.faker.word(),
-    )
     slug = factory.Sequence(
         lambda n: f'category-{n}-{marketplace.utils.tests.base.faker.slug()}',
     )
@@ -36,13 +30,10 @@ class CategoryFactory(factory.django.DjangoModelFactory):
     )
 
 
-class ItemFactory(factory.django.DjangoModelFactory):
+class ItemFactory(core.tests.factories.PublishedWithNameBaseModelFactory):
     class Meta:
         model = catalog.models.Item
 
-    name = factory.LazyAttribute(
-        lambda _: marketplace.utils.tests.base.faker.sentence(nb_words=3),
-    )
     text = factory.LazyAttribute(
         lambda _: marketplace.utils.tests.base.faker.text(),
     )
