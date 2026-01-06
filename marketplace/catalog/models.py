@@ -73,7 +73,12 @@ class Item(core.models.PublishedWithNameBaseModel):
     )
     updated_at = django.db.models.DateTimeField('update date', auto_now=True)
 
+    canonical_name = None
+
     class Meta:
         verbose_name = 'item'
         verbose_name_plural = 'items'
         default_related_name = 'items'
+
+    def clean(self):
+        pass
